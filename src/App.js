@@ -1,5 +1,5 @@
-import react from "react";
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 function App() {
   const expenses = [
     {
@@ -28,21 +28,21 @@ function App() {
     },
   ];
 
-  return react.createElement(
-    "div",
-    {},
-    react.createElement("h2", {}, "Let's get started!"),
-    react.createElement(Expenses, { items: expenses })
-  );
+  // return react.createElement(
+  //   "div",
+  //   {},
+  //   react.createElement("h2", {}, "Let's get started!"),
+  //   react.createElement(Expenses, { items: expenses })
+  // );
   // This is alternate code of the below JSX code
 
-  // return (
-  //   <div>
-  //     <h2>Let's get started!</h2>
-  //     {/* your  custom Components must start with an uppercase character */}
-  //     <Expenses items={expenses} />
-  //   </div>
-  // );
+  return (
+    <div>
+      <NewExpense/>
+      {/* your  custom Components must start with an uppercase character */}
+      <Expenses items={expenses} />
+    </div>
+  );
 }
 
 export default App;

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import ExpenseDate from './ExpenseDate'
 import './ExpenseItem.css'
 import Card from '../UI/Card';
@@ -5,6 +7,13 @@ import Card from '../UI/Card';
 
 function ExpenseItem(props) {
 
+  const [title,setTitle]=useState(props.title);//usestate is called React hook
+  // basically we create a special kind of variable, a variable where changes will lead this component function to be called again
+
+  const clickHandler = ()=>{
+    setTitle("Updated!");
+    console.log(title);
+  };
 
   return (
     <Card className='expense-item'>
@@ -13,9 +22,10 @@ function ExpenseItem(props) {
       <ExpenseDate /> 
       If there is no content b/w the tags*/}
       <div className='expense-item__description'>
-        <h2> {props.title} </h2>
+        <h2> {title} </h2>
         <div className='expense-item__price'>${props.amount}</div> 
       </div>
+      <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
   // you can only return one root element
